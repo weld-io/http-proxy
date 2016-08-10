@@ -18,7 +18,9 @@ you can use:
 
 ## How to Run
 
-Just start with:
+We recommend setting up HTTPS on localhost, see [http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/](http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/)
+
+Then, just start with:
 
 	grunt
 
