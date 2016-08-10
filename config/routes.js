@@ -8,10 +8,12 @@ var express = require('express');
 var proxy = require('../app/proxy');
 
 module.exports = function (app, config) {
+	var router = express.Router();
+	app.use('/', router);
 
-
-	app.use('/' + proxy.yahooHost + '/*', proxy.yahooProxy);
-
-	app.use('/' + proxy.instagramHost + '/*', proxy.requestInstagram);
+	router.get('/:hostname/*', proxy.requestCatchall);
+	router.post('/:hostname/*', proxy.requestCatchall);
+	router.put('/:hostname/*', proxy.requestCatchall);
+	router.delete('/:hostname/*', proxy.requestCatchall);
 
 };
