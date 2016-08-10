@@ -9,6 +9,7 @@ var config = {
 		app: {
 			name: 'http-proxy'
 		},
+		httpsEnabled: true,
 		port: 3014,		
 	},
 
@@ -17,6 +18,7 @@ var config = {
 		app: {
 			name: 'http-proxy'
 		},
+		httpsEnabled: true,
 		port: 3000,		
 	},
 
@@ -25,6 +27,7 @@ var config = {
 		app: {
 			name: 'http-proxy'
 		},
+		httpsEnabled: false, // handled by Heroku’s load balancers
 		port: 3000,
 	}
 

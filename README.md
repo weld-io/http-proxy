@@ -9,16 +9,18 @@ Simple HTTP proxy server designed to solve AJAX CORS issues with some web servic
 
 Example: instead of accessing:
 
-	https://api.instagram.com/v1/tags/design/media/recent?access_token=XXX
+	http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22stockholm%22)&format=json
 
 you can use:
 
-	http://localhost:3014/api.instagram.com/v1/tags/design/media/recent?access_token=XXX
+	http://localhost:3014/query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22stockholm%22)&format=json
 
 
 ## How to Run
 
-Just start with:
+We recommend setting up HTTPS on localhost, see [http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/](http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/)
+
+Then, just start with:
 
 	grunt
 
