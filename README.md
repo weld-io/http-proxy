@@ -2,6 +2,10 @@
 
 Simple HTTP proxy server designed to solve AJAX CORS issues with some web services.
 
+Made by the team at **Weld** ([www.weld.io](https://www.weld.io?utm_source=github-http-proxy)), the code-free app and web creation tool:
+
+[![Weld](https://s3-eu-west-1.amazonaws.com/weld-social-and-blog/gif/weld_explained.gif)](https://www.weld.io?utm_source=github-http-proxy)
+
 
 ## Usage
 
