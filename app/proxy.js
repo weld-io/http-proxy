@@ -15,11 +15,20 @@ var request = require('request');
 var requestCatchall = function (req, res) {
 	var relativePath = req.originalUrl.substring(req.params.hostname.length + 1);
 	var fullPath = req.protocol + '://' + req.params.hostname + relativePath;
-	request({ method: req.method, url: fullPath, json: req.body }, function (err, response, body) {
+	// Conditionals
+	if (fullPath.indexOf('forceHTTP=true') !== -1) {
+		fullPath = fullPath.replace('https:', 'http:');
+	}
+	console.log('Requesting: %s', fullPath);
+	request({ method: req.method, url: fullPath, json: true, body: req.body }, function (err, response, body) {
+		console.log('Response summary: err=%s, type=%s', err, typeof(body));
+		//console.log('response:', response);
+		//console.log('body:', body);
 		if (err || response.statusCode !== 200) {
 			return res.status(response.statusCode).json({ error: err, message: body, statusCode: response.statusCode });
-		} else {
-			return res.status(response.statusCode).json(body);
+		}
+		else {
+			return res.status(response.statusCode).send(body);
 		}
 	});
 };
