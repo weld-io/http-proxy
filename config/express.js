@@ -1,15 +1,15 @@
 var express = require('express');
 var glob = require('glob');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
-var methodOverride = require('method-override');
+// var methodOverride = require('method-override');
 var cors = require('cors');
 
 module.exports = function (app, config) {
-	app.set('views', config.root + '/');
-	app.set('view engine', 'ejs');
+	// app.set('views', config.root + '/');
+	// app.set('view engine', 'ejs');
 
 	// app.use(favicon(config.root + '/public/img/favicon.ico'));
 	app.use(logger('dev'));
@@ -17,10 +17,10 @@ module.exports = function (app, config) {
 	app.use(bodyParser.urlencoded({
 		extended: true
 	}));
-	app.use(cookieParser());
+	//app.use(cookieParser());
 	app.use(compress());
 	app.use(express.static(config.root + '/public'));
-	app.use(methodOverride());
+	//app.use(methodOverride());
 	app.use(cors());
 
 	// Routing

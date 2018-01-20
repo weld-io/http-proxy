@@ -6,6 +6,7 @@
 
 'use strict';
 
+var _ = require('lodash');
 var request = require('request');
 
 // Private methods
@@ -24,11 +25,12 @@ var requestCatchall = function (req, res) {
 		console.log('Response summary: err=%s, type=%s', err, typeof(body));
 		//console.log('response:', response);
 		//console.log('body:', body);
-		if (err || response.statusCode !== 200) {
-			return res.status(response.statusCode).json({ error: err, message: body, statusCode: response.statusCode });
+		const ERROR_CODE = 409;
+		if (err || _.get(response, 'statusCode') !== 200) {
+			return res.status(_.get(response, 'statusCode', ERROR_CODE)).json({ error: err, message: body, statusCode: _.get(response, 'statusCode') });
 		}
 		else {
-			return res.status(response.statusCode).send(body);
+			return res.status(_.get(response, 'statusCode', ERROR_CODE)).send(body);
 		}
 	});
 };
