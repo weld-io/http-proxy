@@ -2,18 +2,17 @@
  * Application routes for REST
  */
 
-'use strict';
+'use strict'
 
-var express = require('express');
-var proxy = require('../app/proxy');
+const express = require('express')
+const proxy = require('../app/proxy')
 
 module.exports = function (app, config) {
-	var router = express.Router();
-	app.use('/', router);
+  const router = express.Router()
+  app.use('/', router)
 
-	router.get('/:hostname/*', proxy.requestCatchall);
-	router.post('/:hostname/*', proxy.requestCatchall);
-	router.put('/:hostname/*', proxy.requestCatchall);
-	router.delete('/:hostname/*', proxy.requestCatchall);
-
-};
+  router.get('/:hostname/*', proxy.requestCatchall)
+  router.post('/:hostname/*', proxy.requestCatchall)
+  router.put('/:hostname/*', proxy.requestCatchall)
+  router.delete('/:hostname/*', proxy.requestCatchall)
+}
