@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"now": "now dev --listen 3014",
+		"deploy": "now --prod",
 		"dev": "nodemon -w app -w app.js app.js",
 		"start": "NODE_ENV=production node app.js",
 		"lint": "standard",
